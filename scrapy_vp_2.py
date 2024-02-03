@@ -53,7 +53,7 @@ class MercadoLibre(CrawlSpider):
         yield item.load_item()
 
   
-    
+    #editando
 
    
      
