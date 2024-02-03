@@ -30,11 +30,11 @@ class MercadoLibre(CrawlSpider):
 
   rules = (
      
-     Rule (
+     #Rule (
 
-        LinkExtractor(allow=r'_Desde_'),follow=True
+        #LinkExtractor(allow=r'_Desde_'),follow=True
         
-    ),      
+    #),      
    
      Rule(
         
