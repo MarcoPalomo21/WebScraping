@@ -9,7 +9,7 @@ from scrapy.loader import ItemLoader
 class Articulos(Item):
     titulo = Field()
     precio = Field()
-    descripcion = Field()
+    #descripcion = Field()
 
 class MercadoLibre(CrawlSpider):
 
@@ -17,7 +17,7 @@ class MercadoLibre(CrawlSpider):
 
   custom_settings = {
       'USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.80 Chrome/71.0.3578.80 Safari/537.36',
-      'CLOSESPIDER_PAGECOUNT':20
+      'CLOSESPIDER_PAGECOUNT':2
       }
   
     
@@ -47,8 +47,8 @@ class MercadoLibre(CrawlSpider):
         item = ItemLoader(Articulos(),response)
 
         item.add_xpath('titulo', '//h1/text()')
-        item.add_xpath('precio','//div[@class="ui-pdp-description pl-45 pr-45 ui-pdp-collapsable--is-collapsed"]/p/text()')
-        item.add_xpath('descripcion','//div[@class= "ui-pdp-price__second-line"]/span/text()')
+        #item.add_xpath('descripcion','//div[@class="ui-pdp-description pl-45 pr-45 ui-pdp-collapsable--is-collapsed"]/p/text()')
+        item.add_xpath('precio','//div[@class= "ui-pdp-price__main-container"]/div[@class="ui-pdp-price__second-line"]/span[@data-testid="price-part"]/span[@class="andes-money-amount ui-pdp-price__part andes-money-amount--cents-superscript andes-money-amount--compact\"]/span[@class="andes-money-amount__fraction"]/text()')
 
         yield item.load_item()
 
