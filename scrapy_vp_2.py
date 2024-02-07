@@ -30,12 +30,7 @@ class MercadoLibre(CrawlSpider):
 
   rules = (
      
-     #Rule (
-
-        #LinkExtractor(allow=r'_Desde_'),follow=True
         
-    #),      
-   
      Rule(
         
         LinkExtractor(allow=r'/p/MLM'),follow=True, callback='parse_items'
